@@ -54,7 +54,7 @@ public class BasicRecursion {
     public static void main(String[] args) {
         Solution sol = new Solution();
         // sol.printName(0, 5);
-        // sol.print1toN(1, 5);
+        sol.print1toN(1, 5);
         // System.out.println("");
         // sol.printNto1(1, 5);
         // System.out.println("");
