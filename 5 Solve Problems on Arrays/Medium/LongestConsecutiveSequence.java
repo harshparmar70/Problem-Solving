@@ -1,5 +1,6 @@
 
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class LongestConsecutiveSequence {
 
@@ -37,6 +38,33 @@ public class LongestConsecutiveSequence {
         return longest;
     }
 
+    static int LCS2(int arr[]) {
+
+        int longest = 1;
+        if (arr.length == 0) {
+            return 0;
+        }
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int i : arr) {
+            set.add(i);
+        }
+
+        for (int num : set) {
+            if (!set.contains(num - 1)) {
+                int curnum = num;
+                int cnt = 1;
+                while (set.contains(curnum + 1)) {
+                    cnt++;
+                    curnum++;
+                }
+                longest = Math.max(longest, cnt);
+            }
+
+        }
+        return longest;
+    }
+
     static boolean ls(int arr[], int num) {
         for (int i : arr) {
             if (i == num) {
@@ -50,5 +78,6 @@ public class LongestConsecutiveSequence {
         int arr[] = {100, 4, 200, 1, 3, 2};
         System.out.println(LCS(arr));
         System.out.println(LCS1(arr));
+        System.out.println(LCS2(arr));
     }
 }
